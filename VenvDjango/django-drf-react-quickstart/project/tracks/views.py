@@ -57,9 +57,7 @@ def search(request):
     sp = spotipy.Spotify(request.session['token_info']['access_token'])
     user = sp.current_user()
     q = request.GET['q']
-    print(q)
     type = request.GET['type']
-    print(type)
     searchResults = sp.search(q,20,0,type)
 
     return JsonResponse(searchResults)
