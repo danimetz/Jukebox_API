@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tracks',
-    'rest_framework',
+    # 'rest_framework',
     'frontend',
     'corsheaders',
     'playlists',
