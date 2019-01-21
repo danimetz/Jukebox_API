@@ -79,6 +79,7 @@ CORS_ALLOW_METHODS = (
     'PATCH',
     'POST',
     'PUT',
+    'POST /playlist_save/'
 )
 
 CORS_ALLOW_HEADERS = (
