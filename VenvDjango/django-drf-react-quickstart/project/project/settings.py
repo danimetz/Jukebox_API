@@ -9,32 +9,25 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
-
 import os
 import environ
 
-# env = environ.Env(
-#     # set casting, default value
-#     DEBUG=(bool, False)
-# )
-# environ.Env.read_env()
+env = environ.Env(DEBUG=(bool, False),)
+environ.Env.read_env()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = env('DEBUG')
+SPOTIPY_CLIENT_ID = env('SPOTIPY_CLIENT_ID')
+SPOTIPY_CLIENT_SECRET = env('SPOTIPY_CLIENT_SECRET')
+SPOTIPY_REDIRECT_URI = env('SPOTIPY_REDIRECT_URI')
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'din52a70)xz!l%zf3@lwi7k*8n)pfb2m=_*9r7nolsaf9o*tpc'
-# SPOTIPY_CLIENT_ID = env('SPOTIPY_CLIENT_ID')
-# SPOTIPY_CLIENT_SECRET = env('SPOTIPY_CLIENT_SECRET')
-# SPOTIPY_REDIRECT_URI = env('SPOTIPY_REDIRECT_URI')
-SPOTIPY_CLIENT_ID = '8fb9d44586b146e7b145153dd3d4febc'
-SPOTIPY_CLIENT_SECRET = '82bb7f4966ed43ec8d76460cea8b5ddd'
-SPOTIPY_REDIRECT_URI = 'http://127.0.0.1:8000/callback/'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
@@ -49,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tracks',
+    'environ',
+    'psycopg2',
     # 'rest_framework',
     'frontend',
     'corsheaders',
@@ -122,9 +117,9 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'JukeboxDB',
-        'USER': 'danimetz',
-        'PASSWORD': '',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '5432',
     }

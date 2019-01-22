@@ -42,11 +42,14 @@ def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
 def add_track(request):
-    body = json.loads(request.body)
-    current_playlist = get_playlistDB(body['room_code'])
+    # body = json.loads(request.body)
+    room_code = request.GET['room_code']
+    track = request.GET['track_id']
+    # current_playlist = get_playlistDB(body['room_code'])
+    current_playlist = get_playlistDB(room_code)
     sp = spotipy.Spotify(current_playlist.access_token)
     sp.trace = False
-    results = sp.user_playlist_add_tracks(current_playlist.user_id,current_playlist.playlist_id, [body['track_id']])
+    results = sp.user_playlist_add_tracks(current_playlist.user_id,current_playlist.playlist_id, [track])
     return JsonResponse(results)
 
 def get_playlistDB(find_room_code):
