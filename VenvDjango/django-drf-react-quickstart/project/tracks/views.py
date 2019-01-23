@@ -35,7 +35,11 @@ def spotify_callback(request):
         request.session['token_info'] = token_info
 
         print(token_info)
-        return HttpResponseRedirect("https://ada-jukebox.herokuapp.com/?access_token=" + token_info['access_token'])
+        try:
+            return HttpResponseRedirect("https://ada-jukebox.herokuapp.com/?access_token=" + token_info['access_token'])
+        except StandardError as e:
+            print(e)
+            return
 
     return HttpResponseRedirect(sp_oauth.get_authorize_url())
 
