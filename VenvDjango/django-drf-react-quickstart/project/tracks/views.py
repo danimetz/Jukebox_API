@@ -25,7 +25,7 @@ def index(request):
     # print(request.session['token_info']['access_token'])
     # return HttpResponse(request.session['token_info']['access_token'])
     # return HttpResponse('Access Token:' + request.META['HTTP_X_SPOTIFY_TOKEN'])
-    return HttpResponseRedirect("http://localhost:3000/")
+    return HttpResponseRedirect("https://ada-jukebox.herokuapp.com/")
 
 def spotify_callback(request):
     print(request.GET)
@@ -45,7 +45,7 @@ def spotify_callback(request):
         request.session['token_info'] = token_info
 
         print(token_info)
-        return HttpResponseRedirect("http://localhost:3000/?access_token=" + token_info['access_token'])
+        return HttpResponseRedirect("https://ada-jukebox.herokuapp.com/?access_token=" + token_info['access_token'])
 
     return HttpResponseRedirect(sp_oauth.get_authorize_url())
 

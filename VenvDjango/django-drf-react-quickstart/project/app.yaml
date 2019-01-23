@@ -3,7 +3,7 @@
 runtime: python
 
 # the PROJECT-DIRECTORY is the one with settings.py and wsgi.py
-entrypoint: gunicorn -b :$PORT PROJECT-DIRECTORY.wsgi # specific to a GUnicorn HTTP server deployment
+entrypoint: gunicorn -b :$PORT project.wsgi # specific to a GUnicorn HTTP server deployment
 env: flex # for Google Cloud Flexible App Engine
 
 # any environment variables you want to pass to your application.
@@ -14,7 +14,7 @@ env_variables:
   DEBUG: 'False' # always False for deployment
   SPOTIPY_CLIENT_ID: '8fb9d44586b146e7b145153dd3d4febc'
   SPOTIPY_CLIENT_SECRET: '82bb7f4966ed43ec8d76460cea8b5ddd'
-  SPOTIPY_REDIRECT_URI: 'http://127.0.0.1:8000/callback/'
+  SPOTIPY_REDIRECT_URI: 'http://django-jukebox.appspot.com/callback'
   DATABASE_NAME: 'JukeboxDB'
   DATABASE_USER: 'danimetz'
   DATABASE_PASSWORD: ''
@@ -24,9 +24,9 @@ env_variables:
 # the second line from the describe output called connectionName can be copied and pasted after /cloudsql/
   DB_HOST: '/cloudsql/django-jukebox:us-west1:jukebox-db'
   DB_PORT: '5432' # PostgreSQL port
-  DB_NAME: 'DATABASE-NAME'
-  DB_USER: 'DATABASE-USERNAME' # either 'postgres' (default) or one you created on the PostgreSQL instance page
-  DB_PASSWORD: 'DATABASE-PASSWORD'
+  DB_NAME: 'jukebox-db'
+  DB_USER: 'danimetz' # either 'postgres' (default) or one you created on the PostgreSQL instance page
+  DB_PASSWORD: 'manitou1'
 
   STATIC_URL: 'https://storage.googleapis.com/BUCKET-NAME/static/' # this is the url that you sync static files to
 
