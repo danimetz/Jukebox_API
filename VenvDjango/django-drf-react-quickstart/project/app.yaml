@@ -1,0 +1,6 @@
+# [START django_app]
+runtime: python37
+
+- url: /.*
+  script: auto
+# [END django_app]
