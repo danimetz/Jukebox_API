@@ -14,7 +14,7 @@ env_variables:
   DEBUG: 'False' # always False for deployment
   SPOTIPY_CLIENT_ID: '8fb9d44586b146e7b145153dd3d4febc'
   SPOTIPY_CLIENT_SECRET: '82bb7f4966ed43ec8d76460cea8b5ddd'
-  SPOTIPY_REDIRECT_URI: 'http://django-jukebox.appspot.com/callback'
+  SPOTIPY_REDIRECT_URI: 'http://django-jukebox.appspot.com/callback/'
   DATABASE_NAME: 'JukeboxDB'
   DATABASE_USER: 'danimetz'
   DATABASE_PASSWORD: ''
