@@ -22,7 +22,7 @@ env_variables:
 # the second line from the describe output called connectionName can be copied and pasted after /cloudsql/
   DB_HOST: '/cloudsql/django-jukebox:us-west1:jukebox-db'
   DB_PORT: '5432' # PostgreSQL port
-  DB_NAME: 'jukebox-db'
+  DB_NAME: 'postgres'
   DB_USER: 'danimetz' # either 'postgres' (default) or one you created on the PostgreSQL instance page
   DB_PASSWORD: 'manitou1'
 
