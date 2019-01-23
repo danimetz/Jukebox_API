@@ -32,7 +32,7 @@ def spotify_callback(request):
         code = request.GET['code']
         token_info = sp_oauth.get_access_token(code)
         # import pdb; pdb.set_trace();
-        request.session['token_info'] = token_info
+        # request.session['token_info'] = token_info
 
         print(token_info)
         try:
