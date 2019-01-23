@@ -15,9 +15,7 @@ env_variables:
   SPOTIPY_CLIENT_ID: '8fb9d44586b146e7b145153dd3d4febc'
   SPOTIPY_CLIENT_SECRET: '82bb7f4966ed43ec8d76460cea8b5ddd'
   SPOTIPY_REDIRECT_URI: 'http://django-jukebox.appspot.com/callback/'
-  DATABASE_NAME: 'JukeboxDB'
-  DATABASE_USER: 'danimetz'
-  DATABASE_PASSWORD: ''
+  
 
 # everything after /cloudsql/ can be found by entering >> gcloud sql instances describe DATABASE-NAME << in your Terminal
 # the DATABASE-NAME is the name you gave your project's PostgreSQL database
@@ -28,7 +26,7 @@ env_variables:
   DB_USER: 'danimetz' # either 'postgres' (default) or one you created on the PostgreSQL instance page
   DB_PASSWORD: 'manitou1'
 
-  STATIC_URL: 'https://storage.googleapis.com/BUCKET-NAME/static/' # this is the url that you sync static files to
+  STATIC_URL: 'https://storage.googleapis.com/jukebox-static/static-files/' # this is the url that you sync static files to
 
 handlers:
 - url: /static
