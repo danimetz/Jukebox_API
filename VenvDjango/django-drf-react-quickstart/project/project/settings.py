@@ -29,7 +29,10 @@ SPOTIPY_REDIRECT_URI = env('SPOTIPY_REDIRECT_URI')
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'django-jukebox.appspot.com',
+]
 
 
 # Application definition
