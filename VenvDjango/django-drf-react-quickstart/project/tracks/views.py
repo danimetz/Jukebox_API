@@ -16,19 +16,10 @@ import pprint
 from django.conf import settings
 
 
-# class TrackListCreate(generics.ListCreateAPIView):
-#     queryset = Track.objects.all()
-#     serializer_class = TrackSerializer
-
 def index(request):
-    # import pdb; pdb.set_trace();
-    # print(request.session['token_info']['access_token'])
-    # return HttpResponse(request.session['token_info']['access_token'])
-    # return HttpResponse('Access Token:' + request.META['HTTP_X_SPOTIFY_TOKEN'])
     return HttpResponseRedirect("https://ada-jukebox.herokuapp.com/")
 
 def spotify_callback(request):
-    print(request.GET)
     SCOPE = 'user-library-read playlist-modify-public'
     sp_oauth = oauth2.SpotifyOAuth(
         settings.SPOTIPY_CLIENT_ID,
@@ -36,7 +27,6 @@ def spotify_callback(request):
         settings.SPOTIPY_REDIRECT_URI,
         scope=SCOPE
         )
-    print(request.GET)
     if 'code' in request.GET:
         print("Spotify Callback")
         code = request.GET['code']
@@ -57,7 +47,7 @@ def playlists(request):
     sp = spotipy.Spotify(token)
     user = sp.current_user()
     playlists = sp.user_playlists(user['id'])
-    # import pdb; pdb.set_trace();
+
     return JsonResponse(playlists)
 # displays search results
 def playlist(request):

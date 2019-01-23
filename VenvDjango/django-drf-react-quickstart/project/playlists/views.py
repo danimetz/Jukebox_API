@@ -20,8 +20,7 @@ from rest_framework.response import Response
 @api_view(['POST'])
 @parser_classes((JSONParser,))
 def playlist_save(request):
-    # import pdb; pdb.set_trace();
-    print(request.META)
+
     access_token=request.META['HTTP_X_SPOTIFY_TOKEN']
     # access_token = request.session['token_info']['access_token']
     sp = spotipy.Spotify(access_token)
