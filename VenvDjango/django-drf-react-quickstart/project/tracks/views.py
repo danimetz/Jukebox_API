@@ -17,7 +17,7 @@ from django.conf import settings
 
 
 def index(request):
-    return HttpResponseRedirect("https://ada-jukebox.herokuapp.com/")
+    return HttpResponseRedirect("http://ada-jukebox.herokuapp.com/")
 
 def spotify_callback(request):
     SCOPE = 'user-library-read playlist-modify-public'
@@ -36,7 +36,7 @@ def spotify_callback(request):
 
         print(token_info)
         try:
-            return HttpResponseRedirect("https://ada-jukebox.herokuapp.com/?access_token=" + token_info['access_token'])
+            return HttpResponseRedirect("http://ada-jukebox.herokuapp.com/?access_token=" + token_info['access_token'])
         except StandardError as e:
             print(e)
             return
