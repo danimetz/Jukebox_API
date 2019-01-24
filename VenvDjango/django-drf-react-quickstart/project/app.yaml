@@ -11,7 +11,7 @@ env: flex # for Google Cloud Flexible App Engine
 env_variables:
 # the secret key used for the Django app (from PROJECT-DIRECTORY/settings.py)
   SECRET_KEY: 'din52a70)xz!l%zf3@lwi7k*8n)pfb2m=_*9r7nolsaf9o*tpc'
-  DEBUG: 'True' # always False for deployment
+  DEBUG: 'False' # always False for deployment
   SPOTIPY_CLIENT_ID: '8fb9d44586b146e7b145153dd3d4febc'
   SPOTIPY_CLIENT_SECRET: '82bb7f4966ed43ec8d76460cea8b5ddd'
   SPOTIPY_REDIRECT_URI: 'http://django-jukebox.appspot.com/callback/'
