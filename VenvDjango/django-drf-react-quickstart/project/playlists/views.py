@@ -46,7 +46,11 @@ def add_track(request):
     track = request.GET['track_id']
     # current_playlist = get_playlistDB(body['room_code'])
     current_playlist = get_playlistDB(room_code)
+    print("LOOK HERE")
+    print(current_playlist)
+    print(current_playlist.access_token)
     sp = spotipy.Spotify(current_playlist.access_token)
+    print(sp)
     sp.trace = False
     results = sp.user_playlist_add_tracks(current_playlist.user_id,current_playlist.playlist_id, [track])
     return JsonResponse(results)
