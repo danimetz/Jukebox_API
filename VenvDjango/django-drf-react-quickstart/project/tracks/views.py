@@ -52,10 +52,21 @@ def playlists(request):
     return JsonResponse(playlists)
 # displays search results
 def playlist(request):
-    token = request.META['HTTP_X_SPOTIFY_TOKEN']
-    sp = spotipy.Spotify(token)
-    user = sp.current_user()
-    playlist_tracks = sp.user_playlist_tracks(user['id'], playlist_id=request.GET['playlist_id'])
+
+    if 'room_code' in request.GET:
+        room_code = request.GET['room_code']
+        current_playlist = Playlist.objects.get(room_code__exact=room_code)
+        print(current_playlist)
+        sp = spotipy.Spotify(current_playlist.access_token)
+        user = sp.current_user()
+        playlist_tracks = sp.user_playlist_tracks(user['id'], playlist_id=current_playlist.playlist_id)
+        print(playlist_tracks)
+    else:
+        token = request.META['HTTP_X_SPOTIFY_TOKEN']
+        sp = spotipy.Spotify(token)
+        user = sp.current_user()
+        playlist_tracks = sp.user_playlist_tracks(user['id'], playlist_id=request.GET['playlist_id'])
+
 
     return JsonResponse(playlist_tracks)
 
