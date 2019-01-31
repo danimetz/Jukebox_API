@@ -64,7 +64,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-And go to: [http://loacalhost:8000/]
+And go to: [http://loacalhost:8000/](http://loacalhost:8000/)
 
 ## How to use?
 * See API calls here
