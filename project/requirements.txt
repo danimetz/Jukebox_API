@@ -11,7 +11,7 @@ channels-redis==2.3.2
 chardet==3.0.4
 constantly==15.1.0
 daphne==2.2.4
-Django==2.1.4
+Django==2.2.10
 django-cors-headers==2.4.0
 django-dotenv==1.4.2
 django-environ==0.4.5
